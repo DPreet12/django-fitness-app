@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/profiles/profile.css' %}"/>
+{% endblock %}
+{% block content %}
+<section class="profile-detail">
+    <h1>Profile Details</h1>
+    <table>
+        <tr>
+            <th>Username:</th>
+            <td>{{profile.user.username}}</td>
+        </tr>
+        <tr>
+            <th>Age:</th>
+            <td>{{profile.age}}</td>
+        </tr>
+        <tr>
+            <th>Weight:</th>
+            <td>{{profile.weight}}</td>
+        </tr>
+        <tr>
+            <th>Height:</th>
+            <td>{{profile.height}}</td>
+        </tr>
+    </table>
+
+</section>
+{%endblock%}

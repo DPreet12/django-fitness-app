@@ -24,6 +24,7 @@
                     <button type="submit">Log out</button>
                 </form>
             </li>
+            <li><a href="{% url 'profile' %}">Profile</a></li>
             {% else %}
             <li><a href="{% url 'home' %}">Login</a></li>
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
