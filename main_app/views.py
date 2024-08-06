@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-
+from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.decorators import LoginRequiredMixin
 
@@ -39,3 +40,20 @@ def profile_detail(request):
     except Profile.DoesNotExist:
         return redirect('home')
     return render(request, 'profiles/details.html', {'profile': profile})
+
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = [ 'age', 'weight', 'height']
+    template_name = 'main_app/profile_form.html'
+    success_url = reverse_lazy('profile')
+
+    def get_object(self, querySet=None):
+        return Profile.objects.get(user= self.request.user)
+
+class ProfileDelete(DeleteView):
+    model = Profile
+    template_name = 'main_app/profile_confirm_delete.html'
+    success_url = reverse_lazy('signup')
+
+    def get_object(self, querySet = None):
+        return Profile.objects.get(user= self.request.user)
