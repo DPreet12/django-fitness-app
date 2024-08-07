@@ -1,9 +1,10 @@
 section {
-    max-width: 100%;
-    margin: 0 auto;
+    max-width: 50%;
+    margin: 5em  auto;
     padding: 0; 
     background-color: var(--color-light);
-   
+    border: 2px solid var(--second-bg-color);
+    border-radius: 2em;
 }
 
 h1 {
@@ -13,37 +14,34 @@ h1 {
     
 }
 
-table {
- 
-    margin: 0 auto;
-    padding: 1em;
+h2 {
+    color: var(--color-warning);
+    text-align: center;
     margin-top: 2em;
+  
 }
-td {
-    padding: 1em;
-}
+
+
 
 .button-container {
  display: flex;
  justify-content: center;
  gap: 1em;
- 
+ margin: 5em 5em;
 }
 
-section.profile-detail .btn.submit {
+section .btn.submit {
    background-color: var(--bg-color);
    padding: 1em;
    border-radius: 5px;
-   width: 5vw;
+   width: auto;
    line-height: .2;
    font-size: medium;
    transition: .5s ease;
    cursor: pointer;
    color: var(--color-light)
-
-   
 }
 
-section.profile-detail .btn.submit:hover {
+section .btn.submit:hover {
     color: var(--color-hover);
 }

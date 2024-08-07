@@ -24,7 +24,9 @@
             <td>{{profile.height}}</td>
         </tr>
     </table>
-<a href="{% url 'profile-update' %}">Edit</a>
-<a href="{% url 'profile-delete' %}">Delete</a>
+<div class= "button-container">
+<a href="{% url 'profile-update' %}" class= "btn submit">Edit</a>
+<a href="{% url 'profile-delete' %}" class= "btn submit">Delete</a>
+</div>
 </section>
 {%endblock%}

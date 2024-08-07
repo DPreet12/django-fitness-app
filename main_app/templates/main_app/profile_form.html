@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<link rel="stylesheet" href="{% static 'css/form-profile.css' %}">
 {% endblock %}
 {% block content %}
 
@@ -11,13 +11,14 @@
     {% else %}
     <h1>Add the Profile</h1>
     {% endif %}
-    <form action="" method="post" >
+</div>
+    <form action="" method="post" class="form-container">
          {% csrf_token %}
          <table>
             {{form.as_table}}
          </table>
-        <button type='submit' >Submit</button>
+        <button type='submit' class = "btn submit">Submit</button>
     </form>
     
-</div>
+
 {% endblock %}

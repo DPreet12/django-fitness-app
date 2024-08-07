@@ -1,0 +1,49 @@
+.form-container {
+    max-width: 70vw;
+    margin: 0 auto;
+    padding: 1em; 
+    background-color: var(--color-light);
+} 
+ 
+.page-header {
+    color: var(--bg-color);
+    text-align: center;
+    margin: 1em 0; 
+}
+
+table {
+    width: 100%;
+    padding: 2em;
+
+}
+
+td {
+    padding: 1em;
+    border: 2px solid gol;
+    
+}
+
+input {
+    width: 100%;
+    border: 1px solid var(--bg-color);
+    padding: .5em;
+    margin: .5em;
+    border-radius: .5em;
+}
+
+form .btn.submit {
+    display: block;
+    background-color: var(--bg-color);
+    padding: 1em;
+    border-radius: 5px;
+    width: 5vw;
+    line-height: .7;
+    margin: 1em auto;
+    font-size: medium;
+    transition: .5s ease;
+    cursor: pointer;
+ }
+
+ form .btn.submit:hover {
+    color: var(--color-hover); 
+ }
