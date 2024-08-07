@@ -5,8 +5,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.decorators import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 # def home(request):
@@ -15,8 +15,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class Home(LoginView):
     template_name= 'home.html'
 
-def about(request):
-    return render(request, 'about.html')
+
 
 def signup(request):
     error_message = ''
@@ -34,6 +33,7 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
 
+@login_required
 def profile_detail(request):
     try:
         profile = Profile.objects.get(user = request.user)
@@ -42,7 +42,8 @@ def profile_detail(request):
         # return render(request, 'profiles')
     return render(request, 'profiles/details.html', {'profile': profile})
 
-class ProfileCreate(CreateView):
+
+class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
     fields = ['age', 'weight', 'height']
     template_name = 'main_app/profile_form.html'
@@ -53,7 +54,7 @@ class ProfileCreate(CreateView):
         return super().form_valid(form)
     
 
-class ProfileUpdate(UpdateView):
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     fields = [ 'age', 'weight', 'height']
     template_name = 'main_app/profile_form.html'
@@ -62,7 +63,7 @@ class ProfileUpdate(UpdateView):
     def get_object(self, querySet=None):
         return Profile.objects.get( user= self.request.user)
 
-class ProfileDelete(DeleteView):
+class ProfileDelete(LoginRequiredMixin, DeleteView):
     model = Profile
     template_name = 'main_app/profile_confirm_delete.html'
     success_url = reverse_lazy('profile-create')
