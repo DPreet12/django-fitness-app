@@ -14,6 +14,9 @@
 5. Allow users to set the fitness goals and see the progress towards their goal
 6. Allow users to edit and delete their fitness goals
 
+## Wireframe:
+![alt text](image.png)
+
 ## ERD:
 
 ## User
