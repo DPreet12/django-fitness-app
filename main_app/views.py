@@ -38,8 +38,20 @@ def profile_detail(request):
     try:
         profile = Profile.objects.get(user = request.user)
     except Profile.DoesNotExist:
-        return redirect('home')
+        return redirect('profile-create')
+        # return render(request, 'profiles')
     return render(request, 'profiles/details.html', {'profile': profile})
+
+class ProfileCreate(CreateView):
+    model = Profile
+    fields = ['age', 'weight', 'height']
+    template_name = 'main_app/profile_form.html'
+    success_url = reverse_lazy('profile')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
 
 class ProfileUpdate(UpdateView):
     model = Profile
@@ -48,12 +60,12 @@ class ProfileUpdate(UpdateView):
     success_url = reverse_lazy('profile')
 
     def get_object(self, querySet=None):
-        return Profile.objects.get(user= self.request.user)
+        return Profile.objects.get( user= self.request.user)
 
 class ProfileDelete(DeleteView):
     model = Profile
     template_name = 'main_app/profile_confirm_delete.html'
-    success_url = reverse_lazy('signup')
+    success_url = reverse_lazy('profile-create')
 
     def get_object(self, querySet = None):
-        return Profile.objects.get(user= self.request.user)
+        return Profile.objects.get( user= self.request.user)
