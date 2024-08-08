@@ -6,9 +6,13 @@
 {% block content %}
 
 <div class="page-header">
+    {% if workout %}
+    <h1>Edit{{workout.user.username}}</h1>
+    {% else %}
     <h1>Add Your Workout</h1>
+    {% endif %}
 </div>
-<form action="{% url 'workout-create' %}" method="post" class="form-container">
+<form action="" method="post" class="form-container">
     {% csrf_token %}
     <table>
         {{form.as_table}}

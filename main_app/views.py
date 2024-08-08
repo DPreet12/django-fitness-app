@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import WorkoutForm
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
@@ -74,7 +75,7 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
  
 @login_required
 def workout_details(request):
-    workouts = Workout.objects.filter(user = request.user)
+    workouts = Workout.objects.filter(user = request.user).order_by('date')
     return render(request, 'workouts/workout_details.html', {'workouts': workouts})
   
 class WorkoutCreate(LoginRequiredMixin, CreateView):
@@ -86,3 +87,27 @@ class WorkoutCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+    
+class WorkoutUpdate(LoginRequiredMixin, UpdateView):
+    model = Workout
+    fields = ['date', 'exercise', 'duration', 'distance', 'notes']
+    template_name = 'main_app/workout_form.html'
+    success_url = reverse_lazy('workout-details')
+
+    def get_object(self, querySet=None):
+        workout_id = self.kwargs["pk"]
+        workout = Workout.objects.get(id=workout_id,  user= self.request.user)
+        return workout
+
+class WorkoutDelete(LoginRequiredMixin, DeleteView):
+    model = Workout
+    template_name = 'main_app/workout_confirm_delete.html'
+    success_url = reverse_lazy('workout-details')
+
+    def get_object(self, querySet = None):
+        workout_id = self.kwargs.get('pk')
+        return Workout.objects.get(id= workout_id, user = self.request.user)
+    
+
+
+ 
