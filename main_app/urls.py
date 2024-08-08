@@ -12,4 +12,7 @@ urlpatterns = [
     path('profile/update/', views.ProfileUpdate.as_view(), name='profile-update'),
     path('profile/delete/', views.ProfileDelete.as_view(), name='profile-delete'),
     path('profile/create/', views.ProfileCreate.as_view(), name='profile-create'),
+    path('workout/create/', views.WorkoutCreate.as_view(), name='workout-create' ),
+    path('workout/details/', views.workout_details, name='workout-details'),
+    
 ]

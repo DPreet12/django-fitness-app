@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/profiles/profile.css' %}"/>
+{% endblock %}
+{% block content %}
+<section class="workout-details">
+    <h1>Workout details</h1>
+    {% if workouts %}
+    <div class="workout-cards">
+        {% for workout in workouts%}
+        <div class = workout-card>
+     <h2>Exercise: {{workout.exercise}}</h2>
+     <p>Date: {{workout.date}}</p>
+     <p>Distance: {{workout.distance}}</p>
+     <p>Duration:{{workout.duration}}</p>
+     <p>Notes: {{workout.notes}}</p>
+        </div>
+        {% endfor %}
+    </div>
+   {% else %}
+   <p> Please add someworks to view your workouts</p>
+    {% endif%}
+</section>
+
+{% endblock %}

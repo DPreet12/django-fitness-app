@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile, Workout, User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -45,7 +45,7 @@ def profile_detail(request):
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
-    fields = ['age', 'weight', 'height']
+    fields = ['age', 'weight', 'height', 'gender']
     template_name = 'main_app/profile_form.html'
     success_url = reverse_lazy('profile')
 
@@ -56,7 +56,7 @@ class ProfileCreate(LoginRequiredMixin, CreateView):
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
-    fields = [ 'age', 'weight', 'height']
+    fields = [ 'age', 'weight', 'height', 'gender']
     template_name = 'main_app/profile_form.html'
     success_url = reverse_lazy('profile')
 
@@ -70,3 +70,19 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
 
     def get_object(self, querySet = None):
         return Profile.objects.get( user= self.request.user)
+
+ 
+@login_required
+def workout_details(request):
+    workouts = Workout.objects.filter(user = request.user)
+    return render(request, 'workouts/workout_details.html', {'workouts': workouts})
+  
+class WorkoutCreate(LoginRequiredMixin, CreateView):
+    model = Workout
+    fields = ['date', 'exercise', 'duration', 'distance', 'notes']
+    template_name = 'main_app/workout_form.html'
+    success_url = reverse_lazy('workout-details')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
