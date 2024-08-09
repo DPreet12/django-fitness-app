@@ -16,7 +16,7 @@
     <nav>
         <ul>
             {%if user.is_authenticated %}
-            <li><a href="{% url 'home' %}">Home</a></li>
+            {% comment %} <li><a href="{% url 'home' %}">Home</a></li> {% endcomment %}
             <li><a href="{% url 'profile' %}">Profile</a></li>
             <li>
             <li><a href="{% url 'workout-create' %}">Add Workout</a></li>
@@ -24,7 +24,7 @@
             <li><a href="{% url 'goal-create' %}">Add goals</a></li>
                 <form id="logout-form" method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
-                    <button type="submit">Log out</button>
+                   <li><button type="submit">Log out</button></li> 
                 </form>
             </li>
             
