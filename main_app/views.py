@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .forms import WorkoutForm
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
@@ -111,7 +110,7 @@ class WorkoutDelete(LoginRequiredMixin, DeleteView):
 @login_required
 def goal_details(request):
     goals = Goal.objects.filter(user = request.user)
-    return render(request, 'goals/goal_details.html', {'goals': goals})
+    return render(request, 'main_app/goals/goal_details.html', {'goals': goals})
 
 class GoalCreate(LoginRequiredMixin, CreateView):
     model = Goal
@@ -119,9 +118,10 @@ class GoalCreate(LoginRequiredMixin, CreateView):
     fields = ['target_weight', 'target_date', 'target_purpose']
     success_url = reverse_lazy('goal-details')
 
-    def get_object(self, form):
+    def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 
     
 

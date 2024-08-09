@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/goal-details.css'%}">
+{% endblock %}
+
+{% block content %}
+ <section class="goal-details">
+      <h1>Goal Details</h1>
+      {% if goals %}
+      <div class="card-container">
+        {% for goal in goals %}
+        <div class="card-layout">
+            <h2>{{goal.user.username}} goal</h2>
+            <p> <strong>Target date:</strong> {{goal.target_date}}</p>
+            <p><strong>Target weight:</strong>{{goal.target_weight}}</p>
+            <p><strong>Purpose to tarin:</strong>{{goal.target_purpose}}</p>
+        </div>
+        {% endfor%}
+      </div>
+      {% else %}
+      <p>Please add some goals to view you goals</p>
+      {% endif%}
+ </section>
+{% endblock %}
