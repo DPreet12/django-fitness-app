@@ -8,7 +8,7 @@
  <section class="goal-details">
       <h1>Goal Details</h1>
       {% if goals %}
-      <div class="card-container">
+      <div class="cards-container">
         {% for goal in goals %}
         <div class="card-layout">
             <h2>{{goal.user.username}}'s goal</h2>
@@ -16,8 +16,8 @@
             <p><strong>Target weight:</strong>{{goal.target_weight}}</p>
             <p><strong>Purpose to tarin:</strong>{{goal.target_purpose}}</p>
             <div class="button-container">
-                <a href="{% url 'goal-update' goal.pk %}" class='btn submit'>Edit</a>
-                <a href="{% url 'goal-delete' goal.pk%}" class-="btn submit">Delete</a>
+                <a href="{% url 'goal-update' goal.pk %}" class="btn submit">Edit</a>
+                <a href="{% url 'goal-delete' goal.pk%}" class="btn submit">Delete</a>
             </div>
         </div>
         

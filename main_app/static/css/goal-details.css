@@ -1,0 +1,53 @@
+.goal-details {
+    text-align: center;  
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.card-layout {
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 20px;
+    
+}
+
+.button-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    
+    
+}
+
+ .btn {
+    background-color: var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: auto;
+    font-size: medium;
+    transition: .5s ease;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    color: var(--color-light)
+}
+
+.btn:hover {
+    background-color: #033b8d;
+}
