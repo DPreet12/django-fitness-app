@@ -135,7 +135,7 @@ class GoalUpdate(LoginRequiredMixin, UpdateView):
     
 class GoalDelete(LoginRequiredMixin, DeleteView):
     model = Goal
-    template_name = 'main_app/goal_confirm_delte.html'
+    template_name = 'main_app/goal_confirm_delete.html'
     success_url = reverse_lazy('goal-details')
 
     def get_object(self, querySet= None):

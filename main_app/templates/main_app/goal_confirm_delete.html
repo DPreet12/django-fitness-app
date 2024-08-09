@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/goal-details.css'%}">
+{% endblock %}
+{% block content %}
+<section>
+    <div>
+        <h1>Delete Goal?</h1>
+    </div>
+    <h2>
+        Are you sure you want to delete {{goal.user.username}}
+    </h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="button-container">
+            <a href="{% url 'goal-details' %}" class="btn submit">Cancel</a>
+            <button type="submit" class="btn submit">Yes - Delete</button>
+        </div>
+    </form>
+</section>
+{% endblock %}
