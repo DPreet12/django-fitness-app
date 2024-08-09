@@ -123,7 +123,24 @@ class GoalCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class GoalUpdate(LoginRequiredMixin, UpdateView):
+    model = Goal
+    fields = ['target_weight', 'target_date', 'target_purpose']
+    template_name = 'main_app/goal_form.html'
+    success_url = reverse_lazy('goal-details')
+
+    def get_object(self, querySet=None):
+        goal_id = self.kwargs.get('pk')
+        return Goal.objects.get(id = goal_id, user = self.request.user)
     
+class GoalDelete(LoginRequiredMixin, DeleteView):
+    model = Goal
+    template_name = 'main_app/goal_confirm_delte.html'
+    success_url = reverse_lazy('goal-details')
+
+    def get_object(self, querySet= None):
+        goal_id = self.kwargs.get('pk')
+        return Goal.objects.get(id= goal_id, user = self.request.user)
 
 
  

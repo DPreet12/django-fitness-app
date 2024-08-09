@@ -15,7 +15,12 @@
             <p> <strong>Target date:</strong> {{goal.target_date}}</p>
             <p><strong>Target weight:</strong>{{goal.target_weight}}</p>
             <p><strong>Purpose to tarin:</strong>{{goal.target_purpose}}</p>
+            <div class="button-container">
+                <a href="{% url 'goal-update' goal.pk %}" class='btn submit'>Edit</a>
+                <a href="{% url 'goal-delete' goal.pk%}" class-="btn submit">Delete</a>
+            </div>
         </div>
+        
         {% endfor%}
       </div>
       {% else %}

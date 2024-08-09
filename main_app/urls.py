@@ -18,5 +18,6 @@ urlpatterns = [
     path('workout/delete/<int:pk>', views.WorkoutDelete.as_view(), name='workout-delete'),
     path('goal/details/', views.goal_details, name='goal-details'),
     path('goal/create/', views.GoalCreate.as_view(), name='goal-create'),
-    
+    path('goal/update/<int:pk>', views.GoalUpdate.as_view(), name='goal-update'),
+    path('goal/delete/<int:pk>', views.GoalDelete.as_view(), name='goal-delete'),
 ]
