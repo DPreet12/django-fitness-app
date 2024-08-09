@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Workout, User
+from .models import Profile, Workout, Goal
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -107,6 +107,22 @@ class WorkoutDelete(LoginRequiredMixin, DeleteView):
     def get_object(self, querySet = None):
         workout_id = self.kwargs.get('pk')
         return Workout.objects.get(id= workout_id, user = self.request.user)
+    
+@login_required
+def goal_details(request):
+    goals = Goal.objects.filter(user = request.user)
+    return render(request, 'goals/goal_details.html', {'goals': goals})
+
+class GoalCreate(LoginRequiredMixin, CreateView):
+    model = Goal
+    template_name = 'main_app/goal_form.html'
+    fields = ['target_weight', 'target_date', 'target_purpose']
+    success_url = reverse_lazy('goal-details')
+
+    def get_object(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
     
 
 

@@ -1,15 +1,15 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/workout-details' %}"/>
+<link rel="stylesheet" href="{% static 'css/workout-details.css' %}"/>
 {% endblock %}
 {% block content %}
 <section class="workout-details">
     <h1>Workout details</h1>
     {% if workouts %}
-    <div class="workout-cards">
+    <div class="cards-container">
         {% for workout in workouts%}
-        <div class = "workout-card">
+        <div class = "card-layout">
      <h2>Exercise: {{workout.exercise}}</h2>
      <p>Date: {{workout.date}}</p>
      <p>Duration:{{workout.duration}}</p>
