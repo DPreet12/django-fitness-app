@@ -7,6 +7,7 @@ from .models import Profile, Workout, Goal
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+import random
 
 # Create your views here.
 # def home(request):
@@ -74,8 +75,10 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
  
 @login_required
 def workout_details(request):
+  
     workouts = Workout.objects.filter(user = request.user).order_by('date')
-    return render(request, 'workouts/workout_details.html', {'workouts': workouts})
+    random_workout=[]
+    return render(request, 'workouts/workout_details.html', { 'workouts': workouts })
   
 class WorkoutCreate(LoginRequiredMixin, CreateView):
     model = Workout
@@ -109,7 +112,18 @@ class WorkoutDelete(LoginRequiredMixin, DeleteView):
     
 @login_required
 def goal_details(request):
+    images = [
+        'images/image-1.jpg',
+        'images/image-2.jpg',
+        'images/image-3.jpg',
+        'images/image-4.jpg'
+    ]
+
+    
     goals = Goal.objects.filter(user = request.user)
+    random_goal=[]
+    
+
     return render(request, 'main_app/goals/goal_details.html', {'goals': goals})
 
 class GoalCreate(LoginRequiredMixin, CreateView):

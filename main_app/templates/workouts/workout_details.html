@@ -15,6 +15,10 @@
      <p>Duration:{{workout.duration}}</p>
      <p>Distance: {{workout.distance}}</p>
      <p>Notes: {{workout.notes}}</p>
+     <div class="image-container">
+    
+        <img src="{% static 'images/image-4.jpg' %}" alt="Workout image">
+     </div>
      <div class="button-container">
         <a href="{% url 'workout-update' workout.pk %}" class="btn submit">Edit</a>
         <a href="{% url 'workout-delete' workout.pk%}" class="btn submit">Delete</a>
@@ -23,7 +27,9 @@
         {% endfor %}
     </div>
    {% else %}
-   <p> Please add someworks to view your workouts</p>
+   <div class="view-page">
+   <p> Please add some worksout logs to view your workouts</p>
+  </div>
     {% endif%}
     
 </section>
