@@ -112,18 +112,8 @@ class WorkoutDelete(LoginRequiredMixin, DeleteView):
     
 @login_required
 def goal_details(request):
-    images = [
-        'images/image-1.jpg',
-        'images/image-2.jpg',
-        'images/image-3.jpg',
-        'images/image-4.jpg'
-    ]
-
     
     goals = Goal.objects.filter(user = request.user)
-    random_goal=[]
-    
-
     return render(request, 'main_app/goals/goal_details.html', {'goals': goals})
 
 class GoalCreate(LoginRequiredMixin, CreateView):
