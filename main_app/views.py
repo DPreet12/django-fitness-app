@@ -114,7 +114,7 @@ def goal_details(request):
 class GoalCreate(LoginRequiredMixin, CreateView):
     model = Goal
     template_name = 'main_app/goal_form.html'
-    fields = ['target_weight', 'target_date', 'target_purpose']
+    fields = ['target_weight', 'target_date', 'purpose_to_train']
     success_url = reverse_lazy('goal-details')
 
     def form_valid(self, form):
@@ -124,7 +124,7 @@ class GoalCreate(LoginRequiredMixin, CreateView):
 
 class GoalUpdate(LoginRequiredMixin, UpdateView):
     model = Goal
-    fields = ['target_weight', 'target_date', 'target_purpose']
+    fields = ['target_weight', 'target_date', 'purpose_to_train']
     template_name = 'main_app/goal_form.html'
     success_url = reverse_lazy('goal-details')
 

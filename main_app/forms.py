@@ -14,4 +14,4 @@ class WorkoutForm(forms.ModelForm):
 class Goals(forms.ModelForm):
     class Meta:
         model = Goal
-        fields = ['target_weight', 'target_date', 'target_purpose' ]
+        fields = ['target_weight', 'target_date', 'purpose_to_train' ]

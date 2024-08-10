@@ -74,8 +74,10 @@
 }
 
 h1 {
-   
+    color: var(--bg-color);
+    font-size: 30px;
     padding: 10px;
+    margin-top: 20px;
 }
 .view-page {
     max-width: 100%;

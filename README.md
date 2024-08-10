@@ -1,7 +1,7 @@
 # django-fitness-app
 
 ## Project Description: 
-The django based fitness app is designed to help users to track their workout and goals progrees on daily basis. Users will have the ability to create, read update and delete their profile, workouts and goals. Users can also compare their progress by keeping the track of thier workout logs and achieved or to be achhieved goals.
+The django based fitness app is designed to help users to track their workout and goals progress on daily basis. Users will have the ability to create, read, update and delete their profile, workouts and goals. Users can also compare their progress by keeping the track of thier workout logs and achieved or to be achhieved goals.
 
 ## MVP
 - User Authentication
@@ -10,12 +10,12 @@ The django based fitness app is designed to help users to track their workout an
 - Goal Setting
 
 ## User Stories:
-1. Allow the new users to sign-up for a account to track the fitness activities
-2. Allow users to login and out of the account so that user can access their data securely
-3. Allow new users to add new workouts and details so that they can track their progress
-4. Allow users to view the list of their past workouts and provide them ability to edit or delete their workouts
-5. Allow users to set the fitness goals and see the progress towards their goal
-6. Allow users to edit and delete their fitness goals
+1. Allow the new users to sign-up for a account to track the fitness activities.
+2. Allow users to login and out of the account so that user can access their data securely.
+3. Allow new users to add new workouts and details so that they can track their progress.
+4. Allow users to view the list of their past workouts and provide them ability to edit or delete their workout.s
+5. Allow users to set the fitness goals and see the progress towards their goal.
+6. Allow users to edit and delete their fitness goals.
 
 ## Technologies Used:
 - Python

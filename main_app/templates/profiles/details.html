@@ -1,13 +1,13 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block head %}
+
 <link rel="stylesheet" href="{% static 'css/profiles/profile.css' %}"/>
 {% endblock %}
 {% block content %}
 <section class="profile-detail">
     <h1>Profile Details</h1>
-    <div class="cards-container">
-        
+    <div class="cards-container">   
     <table>
         <tr >
             <th>Username:</th>
@@ -39,7 +39,7 @@
 <a href="{% url 'profile-update' %}" class= "btn submit">Edit</a>
 <a href="{% url 'profile-delete' %}" class= "btn submit">Delete</a>
 </div>
-
 </div>
 </section>
+
 {%endblock%}
