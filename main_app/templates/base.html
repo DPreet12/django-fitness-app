@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "css/base.css" %}">
-    {% comment %} <link rel="shortcut icon" type="image/png" href="" /> {% endcomment %}
+   
     <title>Fitness App</title>
     {% block head %}
     {% endblock %}
@@ -16,7 +16,7 @@
     <nav>
         <ul>
             {%if user.is_authenticated %}
-            {% comment %} <li><a href="{% url 'home' %}">Home</a></li> {% endcomment %}
+            
             <li><a href="{% url 'profile' %}">Profile</a></li>
            
             <li><a href="{% url 'workout-create' %}">Add Workout</a></li>
