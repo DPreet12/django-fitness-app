@@ -1,0 +1,22 @@
+databases:
+  - name: django-fitness-app
+    plan: free
+    databaseName: fitness_app
+    user: fitness_app_user
+
+services:
+  - type: web
+    plan: free
+    name: django-fitness-app
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn fitness_app.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: fitness_app
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4 
