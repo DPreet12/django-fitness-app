@@ -40,6 +40,33 @@ The django based fitness app is designed to help users to track their workout an
 
 ![alt text](main_app/static/images/image-8.png)
 
+## Code snippets:
+
+```python
+ class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    age = models.IntegerField(null=True, blank=True)
+    weight = models.CharField(max_length=10, null=True, blank=True)
+    height = models.CharField(max_length=10, null=True, blank=True)
+    gender = models.CharField(max_length=10, null=True, blank=True)
+
+class Workout(models.Model):
+    user = models.ForeignKey(User, on_delete= models.CASCADE)
+    date = models.DateField()
+    exercise = models.CharField(max_length=255)
+    duration = models.DurationField()
+    distance = models.CharField(max_length=10, null = True, blank= True)
+    notes = models.TextField(blank=True)
+
+
+class Goal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    target_weight = models.CharField(max_length=10, null = True, blank= True)
+    target_date = models.DateField()
+    purpose_to_train = models.CharField(max_length=100, null = True, blank= True)
+```
+
 ## ERD:
 
 ## User
