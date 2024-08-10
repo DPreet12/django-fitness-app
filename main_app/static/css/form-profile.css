@@ -44,7 +44,7 @@ form .btn.submit {
     background-color: var(--bg-color);
     padding: 1em;
     border-radius: 5px;
-    width: 5vw;
+    width: auto;
     line-height: .7;
     margin: 1em auto;
     font-size: medium;
