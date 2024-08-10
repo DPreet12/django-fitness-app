@@ -6,9 +6,10 @@
 {% block content %}
 <section class="profile-detail">
     <h1>Profile Details</h1>
-    
+    <div class="cards-container">
+        
     <table>
-        <tr>
+        <tr >
             <th>Username:</th>
             <td>{{profile.user.username}}</td>
         </tr>
@@ -30,9 +31,15 @@
             <td>{{profile.gender}}</td>
         </tr>
     </table>
+    <div class="image-container">
+        <img src="{% static 'images/image-5.jpg' %}" alt="Profle image">
+    </div>
+
 <div class= "button-container">
 <a href="{% url 'profile-update' %}" class= "btn submit">Edit</a>
 <a href="{% url 'profile-delete' %}" class= "btn submit">Delete</a>
+</div>
+
 </div>
 </section>
 {%endblock%}

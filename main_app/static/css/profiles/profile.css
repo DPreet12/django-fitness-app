@@ -3,31 +3,67 @@ section {
     margin: 0 auto;
     padding: 0; 
     background-color: var(--color-light);
-   
+    
 }
 
 h1 {
     color: var(--bg-color);
     text-align: center;
     margin-top: 2em;
-    
+   
 }
 
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: auto;
+    width: 400px;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 10px auto;
+    flex-direction: column;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    
+}
+    
+
 table {
- 
+    
     margin: 0 auto;
-    padding: 1em;
+    padding: .5em;
     margin-top: 2em;
 }
 td {
-    padding: 1em;
+    padding: .7em;
+    
+}
+
+.image-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    margin-top: 5px;
+}
+
+.image-container img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .button-container {
  display: flex;
  justify-content: center;
  gap: 1em;
- 
+
 }
 
 section.profile-detail .btn.submit {
@@ -39,8 +75,8 @@ section.profile-detail .btn.submit {
    font-size: medium;
    transition: .5s ease;
    cursor: pointer;
-   color: var(--color-light)
-
+   color: var(--color-light);
+ display:inline-block
    
 }
 
