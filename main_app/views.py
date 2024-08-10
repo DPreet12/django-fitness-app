@@ -7,11 +7,7 @@ from .models import Profile, Workout, Goal
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-import random
 
-# Create your views here.
-# def home(request):
-#     return HttpResponse('<h1>Hello</h1>')
 
 class Home(LoginView):
     template_name= 'home.html'
@@ -24,7 +20,6 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # Profile.objects.create(user=user)
             login( request, user )
             return redirect('profile')
         else:
@@ -40,7 +35,6 @@ def profile_detail(request):
         profile = Profile.objects.get(user = request.user)
     except Profile.DoesNotExist:
         return redirect('profile-create')
-        # return render(request, 'profiles')
     return render(request, 'profiles/details.html', {'profile': profile})
 
 
