@@ -14,8 +14,8 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 15px;
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     overflow: hidden;
     background-color: #fff;
     display: flex;
@@ -34,11 +34,17 @@
 }
 
 .image-container img{
-    width: 150px;
+    width: 200px;
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 .btn {
     background-color: var(--bg-color);

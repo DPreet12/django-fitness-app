@@ -20,6 +20,7 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            # Profile.objects.create(user=user)
             login( request, user )
             return redirect('profile')
         else:
@@ -35,6 +36,7 @@ def profile_detail(request):
         profile = Profile.objects.get(user = request.user)
     except Profile.DoesNotExist:
         return redirect('profile-create')
+
     return render(request, 'profiles/details.html', {'profile': profile})
 
 

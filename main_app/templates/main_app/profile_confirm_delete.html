@@ -15,10 +15,13 @@
 </h2>
 <form action="" method="post">
     {% csrf_token %}
+    <div class="image-container-2">
+        <img src="{% static 'images/image-6.jpg' %}" class="img" alt="Workouts image">
     <div class= "button-container">
        <a href="{% url 'profile' %}" class="btn submit">Cancel</a>
        <button type= "submit" class="btn submit"> Yes - Delete!</button>
    </div>
+</div>
 </form>
 </section>
 
