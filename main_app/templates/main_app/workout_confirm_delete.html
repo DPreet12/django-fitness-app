@@ -10,14 +10,18 @@
         <h1>Delete Workout?</h1>
     </div>
     <h2>
-        Are you sure you want to delete {{workout.user.username}}
+        Are you sure, you want to delete this <strong>{{workout.user.username}}</strong>
     </h2>
     <form action="" method="post">
         {% csrf_token %}
+        <div class="image-container-2">
+            <img src="{% static 'images/image-6.jpg' %}" class="img" alt="Workouts image">
+        
        <div class="button-container">
         <a href="{% url 'workout-details' %}" class="btn submit">Cancel</a>
         <button type="submit" class="btn submit"> Yes - Delete!</button>
-       </div>
+    </div>
+    </div>
     </form>
 </section>
 

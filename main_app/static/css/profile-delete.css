@@ -3,7 +3,7 @@ section {
     margin: 5em  auto;
     padding: 0; 
     background-color: var(--color-light);
-    border: 2px solid var(--second-bg-color);
+    border: 5px solid var(--second-bg-color);
     border-radius: 2em;
 }
 
@@ -25,13 +25,15 @@ h2 {
 
 .button-container {
  display: flex;
- justify-content: center;
- gap: 1em;
- margin: 5em 5em;
+ position: absolute;
+ top: 10px;
+ right: 5px;
+ 
 }
 
-section .btn.submit {
-   background-color: var(--bg-color);
+.btn {
+
+   background-color: transparent;
    padding: 1em;
    border-radius: 5px;
    width: auto;
@@ -39,9 +41,38 @@ section .btn.submit {
    font-size: medium;
    transition: .5s ease;
    cursor: pointer;
-   color: var(--color-light)
+   color: var(--color-light);
+   text-decoration: none;
+   font-weight: bold;
+   font-size: large;
 }
 
-section .btn.submit:hover {
-    color: var(--color-hover);
+.btn:hover {
+    background-color: #033b8d;
 }
+
+.image-container-2  {
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    margin-top: 50px;
+    width: 400px;
+    margin-bottom: 30px;
+    
+  }
+ 
+ .image-container-2 img {
+    
+     height: 400px;
+     object-fit: cover;
+     border-radius: 8px;
+     width: 400px;
+     
+  }
+ 
+  strong {
+    font-weight: bold;
+    color: var(--bg-color);
+  }

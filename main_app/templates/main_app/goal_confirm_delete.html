@@ -9,14 +9,17 @@
         <h1>Delete Goal?</h1>
     </div>
     <h2>
-        Are you sure you want to delete {{goal.user.username}}
+        Are you sure you want to delete this <strong>{{goal.user.username}}</strong>
     </h2>
     <form action="" method="post">
         {% csrf_token %}
+        <div class="image-container-2">
+            <img src="{% static 'images/image-6.jpg' %}" class="img" alt="Goals image">
         <div class="button-container">
             <a href="{% url 'goal-details' %}" class="btn submit">Cancel</a>
             <button type="submit" class="btn submit">Yes - Delete</button>
         </div>
+    </div>
     </form>
 </section>
 {% endblock %}
