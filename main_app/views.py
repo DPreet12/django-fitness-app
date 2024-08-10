@@ -77,7 +77,6 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
 def workout_details(request):
   
     workouts = Workout.objects.filter(user = request.user).order_by('date')
-    random_workout=[]
     return render(request, 'workouts/workout_details.html', { 'workouts': workouts })
   
 class WorkoutCreate(LoginRequiredMixin, CreateView):

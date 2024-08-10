@@ -1,5 +1,8 @@
 # django-fitness-app
 
+## Project Description: 
+The django based fitness app is designed to help users to track their workout and goals progrees on daily basis. Users will have the ability to create, read update and delete their profile, workouts and goals. Users can also compare their progress by keeping the track of thier workout logs and achieved or to be achhieved goals.
+
 ## MVP
 - User Authentication
 - Profile management
@@ -14,17 +17,43 @@
 5. Allow users to set the fitness goals and see the progress towards their goal
 6. Allow users to edit and delete their fitness goals
 
+## Technologies Used:
+- Python
+- Django
+- Psql
+- Javascript
+- Html
+- Css
+
 ## Wireframe:
-![alt text](image.png)
+![alt text](main_app/static/images/image.png)
+
+## Getting Started:
+1. `Fork` and `clone` the repository in your local machine
+     - open your terminal and run git `clone` https://github.com/your-username/django-fitness-app.git
+2. Navigate to project by using command `cd` django-fitness-app
+3. Install required dependencies such as `pipenv install django` and `pipenv shell`
+4. Run the project by using command `python manage.py runserver`
+
+## Screenshots from app:
+![alt text](main_app/static/images/image-7.png)
+
+![alt text](main_app/static/images/image-8.png)
 
 ## ERD:
 
 ## User
-id, name, email, phne, password, weight, height, gender, level, goal, 
+id, name, email, password
+
+## Profile 
+id, name, age, weight, height, gender, `OneToOneField` to User
 
 ## logs
-id, date, total_sets, reps_forEach_Set, total_duration, total_distance, ForeignKey to User
+id, date, total_sets, reps_forEach_Set, total_duration, total_distance, `ForeignKey` to User
 
 ## goals
-id, target_weight, target_height, target_date, ForeignKey to User
+id, target_weight, target_height, target_date, `ForeignKey` to User
+
+## Future Update:
+ Few things could be done with that app such as adding an API call to fetch the workouts from youtube or fetching data for nutrients of different foods
  
