@@ -15,7 +15,7 @@ import os
 import dj_database_url
 from dotenv import load_dotenv
 load_dotenv
-# DATABASE_URL = os.getenv('DATABASE_URL')
+
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG')
 DATABASE_URL = os.getenv('DATABASE_URL')
@@ -27,12 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-md+2+sn6^d1(0fvh2ad3zia2w1+c8pv(#4t)#8^-ec=q+1@r(i'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['','']
 
 
 # Application definition
