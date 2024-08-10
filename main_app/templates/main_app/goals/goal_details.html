@@ -30,6 +30,12 @@
       {% else %}
       <div class="view-page">
         <p>Please add some goals to view you goals</p>
+        <div class="image-container-2">
+          <img src="{% static 'images/image-2.jpg' %}" class="img" alt="Workout image">
+          <div class="button-container-2">
+              <a href="{% url 'workout-create' %}" class="btn-2 submit-2">Add Goals</a>
+          </div>
+       </div>
       </div>
       {% endif%}
  </section>
