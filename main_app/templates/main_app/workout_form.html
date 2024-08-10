@@ -10,15 +10,16 @@
   src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
 >
 </script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <link rel="stylesheet" href="{% static 'css/workout-form.css'%}">
 {% endblock %}
 {% block content %}
 
 <div class="page-header">
     {% if workout %}
-    <h1>Edit{{workout.user.username}}</h1>
+    <h1 class="script-workouts">Edit {{workout.user.username}}</h1>
     {% else %}
-    <h1>Add Your Workout</h1>
+    <h1 class="script-workouts">Add Your Workout</h1>
     {% endif %}
 </div>
 <form action="" method="post" class="form-container">

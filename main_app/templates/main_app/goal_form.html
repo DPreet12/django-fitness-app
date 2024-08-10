@@ -10,15 +10,16 @@
   <script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
 >
 </script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <link rel="stylesheet" href="{% static 'css/form-goal.css'%}">
 {% endblock %}
 {% block content %}
 
 <div class="page-header">
     {% if goal %}
-    <h1>Edit your goal</h1>
+    <h1 class="script-goals">Edit your goal</h1>
     {% else %}
-    <h1>Add Your Goal </h1>
+    <h1 class="script-goals">Add Your Goal </h1>
     {% endif %}
 </div>
 <form action="" method="post" class="form-container">
