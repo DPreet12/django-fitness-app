@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% load static %} 
 {% block head %}
+
+<link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+  <script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
 <link rel="stylesheet" href="{% static 'css/form-goal.css'%}">
 {% endblock %}
 {% block content %}
@@ -19,4 +28,7 @@
     </table>
     <button type="submit" class="btn submit">Submit!</button>
 </form>
+
+<script defer src="{% static 'js/goal-details.js' %}"></script>
+
 {% endblock %}
